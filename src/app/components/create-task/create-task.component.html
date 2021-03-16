@@ -1,0 +1,44 @@
+<div class="content">
+    <h3 class="title" ><strong>{{data.id != undefined ? 'Update' : 'Create'}} Task</strong></h3>
+    <!-- <button  class="close" (click)="closeDialog()">x
+    </button> -->
+
+    
+    
+        <div class="form">
+            <div class="inputField">
+            <label class="col-6">Task</label>
+            <textarea class="col-6" type="text" [(ngModel)]="data.message" ></textarea>
+        
+            </div>
+            <div class="inputField">
+                <label class="col-6">Date</label>
+                <input class="col-6" type="datetime-local" for step="2" [(ngModel)]="data.due_date" />
+            
+                </div>
+    
+        <div class="inputField">
+            <label class="col-6">Priorty</label>
+            <select  class="col-4" [(ngModel)]="data.priority" >
+                <option [selected]="data.priority == '1'"  value ="1">1</option>
+                <option [selected]="data.priority == '2'"  value ="2">2</option>
+
+                <option [selected]="data.priority == '3'"  value ="3">3</option>
+
+            </select>
+        
+            </div>
+    
+    <div class="inputField">
+        <label class="col-6">Assign To Someone</label>
+        <input class="col-6" type="number" [(ngModel)]="data.assigned_to"  />
+        <button class=" btn btn-sm btn-link" (click)="openUsers()" >Choose...</button>
+        </div>
+</div>
+
+
+<button class="create btn btn-sm btn-primary"  (click)="createOrUpdate()" >{{data.id != undefined ? 'Update' : 'Create'}}</button>
+   
+
+</div>
+  

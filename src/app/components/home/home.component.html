@@ -1,0 +1,48 @@
+
+
+
+<table class="table responsive-lg" *ngIf="taskList.length">
+  <thead>
+    <th>
+      Sr.no
+    </th>
+    <th>
+      Id
+    </th>
+    <th>
+      Task
+    </th>
+    <th>
+      Assigned To ID
+    </th>
+    <th>
+     Assigned To Name
+    </th>
+    <th>
+      Created On
+    </th>
+    <th>
+      Due Date
+    </th>
+    <th>
+      Priorty
+    </th>
+    <th>
+      Operations
+    </th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let task of taskList,let i = index">
+    <td>{{i}}</td>
+  <td>{{task.id}}</td>
+  <td>{{task.message}}</td>
+  <td>{{task.assigned_to}}</td>
+  <td>{{task.assigned_name}}</td>
+  <td>{{task.created_on}}</td>
+  <td>{{task.due_date}}</td>
+  <td>{{task.priority}}</td>
+  <td class="operation"><button class="btn btn-sm  btn-info" (click)="update()" [routerLink]="['/update']" routerLinkActive="router-link-active"  [state]="{ data:task}">UPDATE</button>
+    <button class="btn btn-sm btn-danger" (click)="delete(task.id,i)">DELETE</button></td>
+  </tr>
+  </tbody>
+</table>

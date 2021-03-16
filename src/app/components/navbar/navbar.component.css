@@ -1,0 +1,23 @@
+.toolbar{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: black;
+    color: white;
+   font-style: italic;
+   /* font-weight: bold; */
+   height: 4%;
+  
+}
+.app{
+    font-weight: bold;
+}
+label{
+    margin-left: 1%;
+    margin-top: .5%;
+    
+}
+
+label:hover{
+    cursor: pointer;
+}

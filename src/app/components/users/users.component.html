@@ -1,0 +1,27 @@
+<div>
+    <h3 *ngIf="!show">Loading...</h3>
+<table class="table" *ngIf="show">
+    <thead>
+        <th>Sr no.</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>User</th>
+    </thead>
+    <tr *ngFor="let user of usersInfo">
+        <td>
+            <input type="checkbox" (click)="selectUser(user)" />
+
+        </td>
+        <td>
+            {{user.id}}
+        </td>
+        <td>
+            {{user.name}}
+        </td>
+<td>
+    <img title="{{user.name}}" class="userImage" src="{{user.picture}}" width="30px" height="30px" alt="Girl in a jacket">
+</td>
+    </tr>
+</table>
+<button style="float: right;" (click)="closeDialog()" class="btn btn-sm btn-danger">Close</button>
+</div>

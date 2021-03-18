@@ -13,7 +13,7 @@ import {CreateTaskComponent} from '../app/components/create-task/create-task.com
 import {UsersComponent} from '../app/components/users/users.component'
 import {NavbarComponent} from '../app/components/navbar/navbar.component'
 import { TaskbasedonpriortyComponent } from './components/taskbasedonpriorty/taskbasedonpriorty.component';
-import { taskUtil } from 'src/util/task.util';
+import { taskUtil } from '../util/task.util';
 @NgModule({
   declarations: [
     AppComponent,

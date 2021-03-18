@@ -1,8 +1,8 @@
 import { CdkDragDrop,CdkDropList, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import {  ChangeDetectionStrategy, Component, EventEmitter, Input,  OnInit, Output,ViewChild } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { TaskServicesService } from 'src/services/task-services.service';
-import { taskUtil } from 'src/util/task.util';
+import { TaskServicesService } from '../../../services/task-services.service';
+import { taskUtil } from '../../../util/task.util';
 
 @Component({
   selector: 'app-taskbasedonpriorty',

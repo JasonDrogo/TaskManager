@@ -1,25 +1,4 @@
-.content{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-.content div{
-border : 5px solid lightsteelblue;
-border-radius: 10px;
-margin: 4%;
-padding: 5%;
-align-content: center;
-font-size: large;
-font-family:Verdana, Geneva, Tahoma, sans-serif;
-font-style: oblique;
-font-weight: bold;
-border-style:double;
-background-image: linear-gradient(grey,white);
 
-}
-.content div:hover{
-    cursor: pointer;
-}
 
 table{
     border : 2px solid black;
@@ -36,3 +15,14 @@ table{
 .operation{
     display: flex;
 }
+.tables{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    
+}
+

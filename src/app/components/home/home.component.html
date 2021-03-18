@@ -1,7 +1,7 @@
 
 
-
-<table class="table responsive-lg" *ngIf="taskList.length">
+<div *ngIf="show">
+<table class="table responsive-lg" >
   <thead>
     <th>
       Sr.no
@@ -24,9 +24,7 @@
     <th>
       Due Date
     </th>
-    <th>
-      Priorty
-    </th>
+   
     <th>
       Operations
     </th>
@@ -40,9 +38,12 @@
   <td>{{task.assigned_name}}</td>
   <td>{{task.created_on}}</td>
   <td>{{task.due_date}}</td>
-  <td>{{task.priority}}</td>
-  <td class="operation"><button class="btn btn-sm  btn-info" (click)="update()" [routerLink]="['/update']" routerLinkActive="router-link-active"  [state]="{ data:task}">UPDATE</button>
+  <td class="operation"><button class="btn btn-sm  btn-info" [routerLink]="['/update']" routerLinkActive="router-link-active"  [state]="{ data:task}">UPDATE</button>
     <button class="btn btn-sm btn-danger" (click)="delete(task.id,i)">DELETE</button></td>
   </tr>
   </tbody>
 </table>
+<!-- <div class="tables"> -->
+<app-taskbasedonpriorty ng  [data]='taskList'></app-taskbasedonpriorty>
+<!-- </div> -->
+</div>

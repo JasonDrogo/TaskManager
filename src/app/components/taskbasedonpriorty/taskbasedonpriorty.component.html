@@ -1,0 +1,139 @@
+<div class="tables">
+<div><h4 >High Priority</h4>
+
+
+  
+  <table mat-table #table1 id="table1" [dataSource]="HighPrioritySource" cdkDropList
+  #HighPrior='cdkDropList' [cdkDropListData]="HighPrioritySource.data" [cdkDropListConnectedTo]="[MediumPrior,LowPrior]"
+  (cdkDropListDropped)="drop($event)" class="mat-elevation-z8">
+
+
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element?.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="message">
+    <th mat-header-cell *matHeaderCellDef> Message </th>
+    <td mat-cell *matCellDef="let element"> {{element?.message}} </td>
+  </ng-container>
+  <ng-container matColumnDef="assigned_to">
+    <th mat-header-cell *matHeaderCellDef> Assigned Id </th>
+    <td mat-cell *matCellDef="let element"> {{element?.assigned_to}} </td>
+  </ng-container>
+  <ng-container matColumnDef="assigned_name">
+    <th mat-header-cell *matHeaderCellDef> Assigned Name </th>
+    <td mat-cell *matCellDef="let element"> {{element?.assigned_name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef> Priority </th>
+    <td mat-cell *matCellDef="let element"> {{element?.priority}} </td>
+  </ng-container>
+  <ng-container matColumnDef="created_on">
+    <th mat-header-cell *matHeaderCellDef> Created Date </th>
+    <td mat-cell *matCellDef="let element"> {{element?.created_on}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="due_date">
+    <th mat-header-cell *matHeaderCellDef> Due_Date </th>
+    <td mat-cell *matCellDef="let element"> {{element?.due_date}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index;" cdkDrag
+    [cdkDragData]="row">
+  </tr>
+</table>
+</div>
+<div>
+<h4  >Medium Priority</h4>
+<table  mat-table  #table2  id="table2" [dataSource]="MediumPrioritySource" cdkDropList
+  #MediumPrior='cdkDropList' [cdkDropListData]="MediumPrioritySource.data"
+  [cdkDropListConnectedTo]="[HighPrior,LowPrior]" (cdkDropListDropped)="drop($event)" class="mat-elevation-z8">
+
+
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element?.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="message">
+    <th mat-header-cell *matHeaderCellDef> Message </th>
+    <td mat-cell *matCellDef="let element"> {{element?.message}} </td>
+  </ng-container>
+  <ng-container matColumnDef="assigned_to">
+    <th mat-header-cell *matHeaderCellDef> Assigned Id </th>
+    <td mat-cell *matCellDef="let element"> {{element?.assigned_to}} </td>
+  </ng-container>
+  <ng-container matColumnDef="assigned_name">
+    <th mat-header-cell *matHeaderCellDef> Assigned Name </th>
+    <td mat-cell *matCellDef="let element"> {{element?.assigned_name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef> Priority </th>
+    <td mat-cell *matCellDef="let element"> {{element?.priority}} </td>
+  </ng-container>
+  <ng-container matColumnDef="created_on">
+    <th mat-header-cell *matHeaderCellDef> Created Date </th>
+    <td mat-cell *matCellDef="let element"> {{element?.created_on}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="due_date">
+    <th mat-header-cell *matHeaderCellDef> Due_Date </th>
+    <td mat-cell *matCellDef="let element"> {{element?.due_date}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index;" cdkDrag
+    [cdkDragData]="row">
+  </tr>
+</table>
+</div>
+<div>
+<h4 >Low Priority</h4>
+<table  mat-table  #table3  id="table3" [dataSource]="LowPrioritySource" cdkDropList
+  #LowPrior='cdkDropList' [cdkDropListData]="LowPrioritySource.data"
+  [cdkDropListConnectedTo]="[HighPrior,MediumPrior]" (cdkDropListDropped)="drop($event)" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element?.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="message">
+    <th mat-header-cell *matHeaderCellDef> Message </th>
+    <td mat-cell *matCellDef="let element"> {{element?.message}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="assigned_to">
+    <th mat-header-cell *matHeaderCellDef> Assigned Id </th>
+    <td mat-cell *matCellDef="let element"> {{element?.assigned_to}} </td>
+  </ng-container>
+  <ng-container matColumnDef="assigned_name">
+    <th mat-header-cell *matHeaderCellDef> Assigned Name </th>
+    <td mat-cell *matCellDef="let element"> {{element?.assigned_name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="priority">
+    <th mat-header-cell *matHeaderCellDef> Priority </th>
+    <td mat-cell *matCellDef="let element"> {{element?.priority}} </td>
+  </ng-container>
+  <ng-container matColumnDef="created_on">
+    <th mat-header-cell *matHeaderCellDef> Created Date </th>
+    <td mat-cell *matCellDef="let element"> {{element?.created_on}} </td>
+  </ng-container>
+  <ng-container matColumnDef="due_date">
+    <th mat-header-cell *matHeaderCellDef> Due_Date </th>
+    <td mat-cell *matCellDef="let element"> {{element?.due_date}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index;"  cdkDrag
+    [cdkDragData]="row">
+  </tr>
+</table>
+</div>
+</div>
+

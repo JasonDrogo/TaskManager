@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog} from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { taskUtil } from 'src/util/task.util';
 
 import { TaskServicesService } from '../../../services/task-services.service';
 import { UsersComponent } from '../users/users.component';
@@ -13,7 +14,7 @@ import { UsersComponent } from '../users/users.component';
 export class CreateTaskComponent implements OnInit {
  data : any ={message:'',assigned_to:null};
 
-  constructor(public dialog : MatDialog ,private taskService : TaskServicesService,private router : Router,private activatedRoute : ActivatedRoute)  {
+  constructor(public dialog : MatDialog ,private taskService : TaskServicesService,private router : Router,private activatedRoute : ActivatedRoute,private util : taskUtil)  {
     
 let routerState = this.router.getCurrentNavigation().extras.state;
 if(this.activatedRoute.routeConfig.path == 'update' && routerState == undefined ){
@@ -23,16 +24,14 @@ if(this.activatedRoute.routeConfig.path == 'update' && routerState == undefined 
     this.data = routerState.data;
     
     this.data.due_date = this.data.due_date != null ? (this.data.due_date).toString().split(' ').join('T') : null;
-    console.log(this.data);
+   
     
   }
    }
 
   ngOnInit(): void {
   }
-  closeDialog(){
-    // this.dialogRef.close();
-  }
+  
 
   openUsers(){
     const dialogRef = this.dialog.open(UsersComponent, {
@@ -55,7 +54,7 @@ if(this.activatedRoute.routeConfig.path == 'update' && routerState == undefined 
   }
 
   updateTask(){
-    let formdata = this.getFormData();
+    let formdata = this.util.getFormData(this.data);
   
     formdata.append('taskid',(this.data.id).toString() );
     this.taskService.updateTask(formdata).subscribe((result :any)=>{
@@ -64,24 +63,12 @@ if(this.activatedRoute.routeConfig.path == 'update' && routerState == undefined 
   }
 
   createTask(){   
-let formdata = this.getFormData();
+let formdata = this.util.getFormData(this.data);
 
     this.taskService.createTask(formdata).subscribe((result :any)=>{
       this.router.navigate(['/']);
     })
   }
 
-  getFormData() : FormData{
-    var form_data = new FormData();
-
-    for ( let key in this.data ) {
-      if(key =="due_date"){
-        form_data.append(key,this.data[key].toString().split('T').join(' '));
-      }
-      else{
-        form_data.append(key, this.data[key]);
-      }
-    }
-    return form_data;
-  }
+  
 }

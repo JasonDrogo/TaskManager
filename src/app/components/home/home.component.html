@@ -1,7 +1,7 @@
 
 
 <div *ngIf="show">
-<table class="table responsive-lg" >
+<table style="margin-top: 2%;" class="table responsive-lg" >
   <thead>
     <th>
       Sr.no
@@ -28,9 +28,10 @@
     <th>
       Operations
     </th>
+    <th> <input type="text" placeholder="TaskMessage" [(ngModel)]="searchedTask" /></th>
   </thead>
   <tbody>
-  <tr *ngFor="let task of taskList,let i = index">
+  <tr *ngFor="let task of FilteredtaskList,let i = index">
     <td>{{i}}</td>
   <td>{{task.id}}</td>
   <td>{{task.message}}</td>
@@ -38,8 +39,11 @@
   <td>{{task.assigned_name}}</td>
   <td>{{task.created_on}}</td>
   <td>{{task.due_date}}</td>
+
   <td class="operation"><button class="btn btn-sm  btn-info" [routerLink]="['/update']" routerLinkActive="router-link-active"  [state]="{ data:task}">UPDATE</button>
     <button class="btn btn-sm btn-danger" (click)="delete(task.id,i)">DELETE</button></td>
+
+    <td>   </td>
   </tr>
   </tbody>
 </table>

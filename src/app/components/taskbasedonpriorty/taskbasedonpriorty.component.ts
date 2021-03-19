@@ -15,7 +15,6 @@ export class TaskbasedonpriortyComponent implements OnInit {
   LowPrioritySource :  MatTableDataSource<any> ;
 
 @Input() set data(taskList :Array<any>){
-  console.log(taskList);
 this.HighPrioritySource =  new MatTableDataSource();
 this.MediumPrioritySource =  new MatTableDataSource();
 this.LowPrioritySource = new MatTableDataSource();

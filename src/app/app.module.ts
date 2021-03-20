@@ -21,8 +21,7 @@ import { taskUtil } from '../util/task.util';
     NavbarComponent,
     CreateTaskComponent,
     UsersComponent,
-    TaskbasedonpriortyComponent,
-    UsersComponent
+    TaskbasedonpriortyComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +33,7 @@ import { taskUtil } from '../util/task.util';
     HttpClientModule
     
   ],
+  entryComponents: [UsersComponent],
   providers: [taskUtil],
   bootstrap: [AppComponent]
 })

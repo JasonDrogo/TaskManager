@@ -3,7 +3,7 @@
 
 
   
-  <table mat-table #table1 id="table1" [dataSource]="HighPrioritySource" cdkDropList
+  <mat-table #table1 id="table1" [dataSource]="HighPrioritySource" cdkDropList
   #HighPrior='cdkDropList' [cdkDropListData]="HighPrioritySource.data" [cdkDropListConnectedTo]="[MediumPrior,LowPrior]"
   (cdkDropListDropped)="drop($event)" class="mat-elevation-z8">
 
@@ -44,11 +44,11 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index;" cdkDrag
     [cdkDragData]="row">
   </tr>
-</table>
+</mat-table>
 </div>
 <div>
 <h4  >Medium Priority</h4>
-<table  mat-table  #table2  id="table2" [dataSource]="MediumPrioritySource" cdkDropList
+<mat-table  #table2  id="table2" [dataSource]="MediumPrioritySource" cdkDropList
   #MediumPrior='cdkDropList' [cdkDropListData]="MediumPrioritySource.data"
   [cdkDropListConnectedTo]="[HighPrior,LowPrior]" (cdkDropListDropped)="drop($event)" class="mat-elevation-z8">
 
@@ -90,11 +90,11 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index;" cdkDrag
     [cdkDragData]="row">
   </tr>
-</table>
+</mat-table>
 </div>
 <div>
 <h4 >Low Priority</h4>
-<table  mat-table  #table3  id="table3" [dataSource]="LowPrioritySource" cdkDropList
+<mat-table  #table3  id="table3" [dataSource]="LowPrioritySource" cdkDropList
   #LowPrior='cdkDropList' [cdkDropListData]="LowPrioritySource.data"
   [cdkDropListConnectedTo]="[HighPrior,MediumPrior]" (cdkDropListDropped)="drop($event)" class="mat-elevation-z8">
 
@@ -133,7 +133,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index;"  cdkDrag
     [cdkDragData]="row">
   </tr>
-</table>
+</mat-table>
 </div>
 </div>
 

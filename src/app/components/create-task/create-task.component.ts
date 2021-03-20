@@ -41,9 +41,10 @@ if(this.activatedRoute.routeConfig.path == 'update' && routerState == undefined 
    });
 
    dialogRef.afterClosed().subscribe((result) => {
+     if(result != undefined){
      this.data.assigned_to = result.id;
      console.log('The dialog was closed');
-     // this.animal = result;
+     }
    });
   }
 
